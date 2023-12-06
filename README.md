@@ -16,7 +16,7 @@
 
 ## Usage
 
-In a few lines of code, you instantiate a new Together.ai client, specify your model and inputs, and get back a result from your preferred LLM or Model.
+Add open source LLMs to your apps in a few lines of code. Simply create a new Together.ai client, specify your preferred AI model with inputs, and get back a result.
 
 ```js
 import Together from 'together-ai';
@@ -31,6 +31,17 @@ const result = await together.inference('mistralai/Mistral-7B-Instruct-v0.1', {
 });
 ```
 
+## Popular Supported Models
+
+This is a list of popular models that are supported.
+
+- Mistral-7B (`mistralai/Mistral-7B-Instruct-v0.1`)
+- Llama-2 70B (`togethercomputer/llama-2-70b-chat`)
+- Llama-2 13B (`togethercomputer/llama-2-13b-chat`)
+- RedPajama 7B (`togethercomputer/RedPajama-INCITE-7B-Chat`)
+- OpenOrca Mistral (`Open-Orca/Mistral-7B-OpenOrca`)
+- Alpaca 7B (`togethercomputer/alpaca-7b`)
+
 ## How it works
 
-This library uses the [Together Inference Engine](https://www.together.ai/blog/together-inference-engine-v1), the world's fastest inference stack for open source LLMs and models. It calls the [Together.ai](<[together.ai](https://www.together.ai/)>) Inference API under the hood to enable you to use ML models quickly.
+This library uses the [Together Inference Engine](https://www.together.ai/blog/together-inference-engine-v1), the world's fastest inference stack for open source LLMs. It calls the [Together.ai](<[together.ai](https://www.together.ai/)>) Inference API under the hood to enable you to use OSS LLMs quickly.
