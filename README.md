@@ -44,4 +44,4 @@ This is a list of popular models that are supported.
 
 ## How it works
 
-This library uses the [Together Inference Engine](https://www.together.ai/blog/together-inference-engine-v1), the world's fastest inference stack for open source LLMs. It calls the [Together.ai](<[together.ai](https://www.together.ai/)>) Inference API under the hood to enable you to use OSS LLMs quickly.
+This library uses the [Together Inference Engine](https://www.together.ai/blog/together-inference-engine-v1), the world's fastest inference stack for open source LLMs. It calls the [Together.ai](<[together.ai](https://www.together.ai/)>) Inference API, specifically their serverless endpoints product, to enable you to use OSS LLMs quickly and effeciently.
