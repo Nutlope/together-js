@@ -1,0 +1,26 @@
+{
+  "name": "nsfw-filter",
+  "version": "1.0.3",
+  "description": "A minimal library that helps filter out NSFW images.",
+  "author": "Hassan El Mghari (@nutlope)",
+  "repository": "Nutlope/nsfw-filter",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.3",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^3.21.0",
+    "nsfwjs": "^2.4.2"
+  },
+  "keywords": [
+    "nsfw filter",
+    "nsfw detection",
+    "safe images"
+  ]
+}
