@@ -1,9 +1,9 @@
 {
-  "name": "nsfw-filter",
-  "version": "1.0.3",
-  "description": "A minimal library that helps filter out NSFW images.",
+  "name": "together-ai",
+  "version": "0.0.1",
+  "description": "A Node SDK for Together.ai.",
   "author": "Hassan El Mghari (@nutlope)",
-  "repository": "Nutlope/nsfw-filter",
+  "repository": "Nutlope/together-ai",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,13 +14,11 @@
     "@types/node": "^20.6.3",
     "typescript": "^5.2.2"
   },
-  "dependencies": {
-    "@tensorflow/tfjs": "^3.21.0",
-    "nsfwjs": "^2.4.2"
-  },
+  "dependencies": {},
   "keywords": [
-    "nsfw filter",
-    "nsfw detection",
-    "safe images"
+    "together ai",
+    "ai",
+    "inference",
+    "OSS AI models"
   ]
 }

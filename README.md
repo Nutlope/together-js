@@ -4,7 +4,7 @@
   </div>
 	<p>An npm library that helps run inference for Together.
 
-<a href="https://www.npmjs.com/package/nsfw-filter"><img src="https://img.shields.io/npm/v/nsfw-filter" alt="Current version"></a>
+<a href="https://www.npmjs.com/package/together-ai"><img src="https://img.shields.io/npm/v/together-ai" alt="Current version"></a>
 
 </div>
 
