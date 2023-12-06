@@ -2,7 +2,7 @@
   <div>
     <h1 align="center">Together.ai Node SDK</h1>
   </div>
-	<p>An npm library that helps run inference for <a href="https://www.together.ai/">Together.ai</a>.
+	<p>An npm library to run open source LLMs through <a href="https://www.together.ai/">Together.ai</a>.
 
 <a href="https://www.npmjs.com/package/together-ai"><img src="https://img.shields.io/npm/v/together-ai" alt="Current version"></a>
 

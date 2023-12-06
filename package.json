@@ -1,9 +1,9 @@
 {
   "name": "together-ai",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A Node SDK for Together.ai.",
   "author": "Hassan El Mghari (@nutlope)",
-  "repository": "Nutlope/together-ai",
+  "repository": "Nutlope/together-js",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,8 +17,10 @@
   "dependencies": {},
   "keywords": [
     "together ai",
-    "ai",
-    "inference",
-    "OSS AI models"
+    "LLMs",
+    "open source",
+    "AI models",
+    "mistral",
+    "Llama"
   ]
 }
