@@ -1,76 +1,55 @@
-import * as tf from '@tensorflow/tfjs';
-import * as nsfwjs from 'nsfwjs';
+type ApiResponse = {
+  status: string;
+  prompt: string[];
+  model: string;
+  model_owner: string;
+  tags: Record<string, unknown>;
+  num_returns: number;
+  args: {
+    model: string;
+    prompt: string;
+    max_tokens: number;
+    stop: string;
+    temperature: number;
+    top_p: number;
+    top_k: number;
+    repetition_penalty: number;
+  };
+  subjobs: any[];
+  output: {
+    choices: {
+      text: string;
+    }[];
+    request_id: string;
+  };
+};
 
-tf.enableProdMode();
-
-class NSFWFilter {
-  model: nsfwjs.NSFWJS | null = null;
-  constructor() {
-    this.model = null;
-    this.getModel();
-  }
-  async getModel() {
-    try {
-      this.model = await nsfwjs.load(
-        'https://nsfw-model-1.s3.us-west-2.amazonaws.com/nsfw-predict-model/',
-        // @ts-ignore
-        { type: 'graph' }
-      );
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  predict(element: HTMLImageElement, guesses: number) {
-    if (!this.model) {
-      throw new Error('Some error occurred, please try again later!');
-    }
-    return this.model.classify(element, guesses);
-  }
-
-  async predictImg(file: File, guesses = 5) {
-    const url = URL.createObjectURL(file);
-    try {
-      const img = document.createElement('img');
-      img.width = 400;
-      img.height = 400;
-
-      img.src = url;
-      return await new Promise<nsfwjs.predictionType[]>((res) => {
-        img.onload = async () => {
-          const results = await this.predict(img, guesses);
-          URL.revokeObjectURL(url);
-          res(results);
-        };
-      });
-    } catch (error) {
-      console.error(error);
-      URL.revokeObjectURL(url);
-      throw error;
-    }
+class Together {
+  authApiKey: string | null = null;
+  constructor({ auth }: { auth: string }) {
+    this.authApiKey = auth;
   }
 
-  async isSafe(file: File) {
-    try {
-      const predictions = await this.predictImg(file, 3);
-      const pornPrediction = predictions.find(
-        ({ className }) => className === 'Porn'
-      );
-      const hentaiPrediction = predictions.find(
-        ({ className }) => className === 'Hentai'
-      );
-
-      if (!pornPrediction || !hentaiPrediction) {
-        return true;
-      }
-      return !(
-        pornPrediction.probability > 0.25 || hentaiPrediction.probability > 0.25
-      );
-    } catch (error) {
-      console.error(error);
-      throw error;
+  async inference(model: string, { ...inputs }) {
+    if (!this.authApiKey) {
+      throw new Error('Auth key is not set!');
     }
+    const res = await fetch('https://api.together.xyz/inference', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.authApiKey,
+      },
+      body: JSON.stringify({
+        model,
+        ...inputs,
+      }),
+    });
+
+    const data: ApiResponse = await res.json();
+
+    return data;
   }
 }
 
-export default new NSFWFilter();
+export default Together;
