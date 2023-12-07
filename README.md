@@ -25,7 +25,9 @@ const together = new Together({
   auth: `api token`,
 });
 
-const result = await together.inference('mistralai/Mistral-7B-Instruct-v0.1', {
+const model = 'mistralai/Mistral-7B-Instruct-v0.1';
+
+const result = await together.inference(model, {
   prompt: 'tell me about the history of the United States',
   max_tokens: 300,
 });
