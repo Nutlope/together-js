@@ -34,6 +34,7 @@ class Together {
     if (!this.authApiKey) {
       throw new Error('Auth key is not set!');
     }
+
     const res = await fetch('https://api.together.xyz/inference', {
       method: 'POST',
       headers: {
@@ -46,9 +47,12 @@ class Together {
       }),
     });
 
-    const data: ApiResponse = await res.json();
-
-    return data;
+    if (inputs.stream_tokens === true) {
+      return res.body;
+    } else {
+      const data: ApiResponse = await res.json();
+      return data;
+    }
   }
 }
 

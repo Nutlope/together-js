@@ -22,13 +22,13 @@ Add open source LLMs to your apps in a few lines of code. Simply create a new To
 import Together from 'together-ai';
 
 const together = new Together({
-  auth: `api token`,
+  auth: process.env.TOGETHER_API_KEY,
 });
 
 const model = 'mistralai/Mistral-7B-Instruct-v0.1';
 
 const result = await together.inference(model, {
-  prompt: 'tell me about the history of the United States',
+  prompt: 'Suggest some fun family activities for the new year',
   max_tokens: 300,
 });
 ```
