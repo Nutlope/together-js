@@ -16,7 +16,7 @@
 
 ## Usage
 
-Add open source LLMs to your apps in a few lines of code. Simply create a new Together.ai client, specify your preferred AI model with inputs, and get back a result.
+Create an account at [together.ai](https://www.together.ai/) and add the API key in. Then simply run the code snippet below with your preferred AI model and inputs to get back a reply.
 
 ```js
 import Together from 'together-ai';
@@ -30,6 +30,20 @@ const model = 'mistralai/Mistral-7B-Instruct-v0.1';
 const result = await together.inference(model, {
   prompt: 'Suggest some fun family activities for the new year',
   max_tokens: 300,
+});
+```
+
+### Streaming with LLMs
+
+If you want to stream, simply specify `stream-tokens: true`.
+
+```js
+const model = 'togethercomputer/llama-2-70b-chat';
+
+const result = await together.inference(model, {
+  prompt: 'Tell me about the history of the United States',
+  max_tokens: 1000,
+  stream_tokens: true,
 });
 ```
 
