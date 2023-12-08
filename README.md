@@ -38,14 +38,18 @@ const result = await together.inference(model, {
 If you want to stream, simply specify `stream-tokens: true`.
 
 ```js
-const model = 'togethercomputer/llama-2-70b-chat';
-
-const result = await together.inference(model, {
+const result = await together.inference('togethercomputer/llama-2-70b-chat', {
   prompt: 'Tell me about the history of the United States',
   max_tokens: 1000,
   stream_tokens: true,
 });
 ```
+
+### Example Chat App
+
+You can see an example of this library being used in a chat app here: https://simple-ai-chat.vercel.app.
+
+The code for the example is also available. This includes code on how to stream the results of the LLM directly to the frontend: https://github.com/Nutlope/chat
 
 ## Popular Supported Models
 

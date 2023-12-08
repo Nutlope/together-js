@@ -1,6 +1,6 @@
 {
   "name": "together-ai",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Node.js SDK for Together.ai.",
   "author": "Hassan El Mghari (@nutlope)",
   "repository": "Nutlope/together-js",
