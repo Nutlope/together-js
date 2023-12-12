@@ -25,11 +25,11 @@ const together = new Together({
   auth: process.env.TOGETHER_API_KEY,
 });
 
-const model = 'mistralai/Mistral-7B-Instruct-v0.1';
+const model = 'mistralai/Mixtral-8x7B-Instruct-v0.1';
 
 const result = await together.inference(model, {
-  prompt: 'Suggest some fun family activities for the new year',
-  max_tokens: 300,
+  prompt: 'Suggest some fun winter family activities',
+  max_tokens: 700,
 });
 ```
 
@@ -45,16 +45,29 @@ const result = await together.inference('togethercomputer/llama-2-70b-chat', {
 });
 ```
 
-### Example Chat App
+### Next.js Chat App with streaming
 
-You can see an example of this library being used in a chat app here: https://simple-ai-chat.vercel.app.
+You can see an example of this library being used in a Next.js chat app here: https://simple-ai-chat.vercel.app.
 
-The code for the example is also available. This includes code on how to stream the results of the LLM directly to the frontend: https://github.com/Nutlope/chat
+The code for the example is also available, including code on how to stream the results of the LLM directly to the frontend: https://github.com/Nutlope/chat.
+
+### Filtering responses with Llama Guard
+
+You can now use Llama Guard, an LLM-based input-output safeguard model, with models on the Together.ai platform. To do this, simply add `"safety_model": "Meta-Llama/Llama-Guard-7b"`.
+
+```js
+const result = await together.inference('togethercomputer/llama-2-13b-chat', {
+  prompt: 'Tell me about San Francisco',
+  max_tokens: 1000,
+  safety_model: 'Meta-Llama/Llama-Guard-7b',
+});
+```
 
 ## Popular Supported Models
 
-This is a list of popular models that are supported.
+This is a non-exhaustive list of popular models that are supported.
 
+- Mixtral Instruct v0.1 (`mistralai/Mixtral-8x7B-Instruct-v0.1`)
 - Mistral-7B (`mistralai/Mistral-7B-Instruct-v0.1`)
 - Llama-2 70B (`togethercomputer/llama-2-70b-chat`)
 - Llama-2 13B (`togethercomputer/llama-2-13b-chat`)
