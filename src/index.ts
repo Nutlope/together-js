@@ -1,4 +1,4 @@
-type ApiResponse = {
+export type ApiResponse = {
   status: string;
   prompt: string[];
   model: string;
